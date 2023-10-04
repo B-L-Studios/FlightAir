@@ -12,6 +12,6 @@
         android:strokeWidth="0.00024000000000000003"
         android:fillColor="#93155b"
         android:fillType="evenOdd"
-        android:strokeColor=""/>
+        android:strokeColor="#000000"/>
   </group>
 </vector>
