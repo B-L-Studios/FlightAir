@@ -1,4 +1,4 @@
-package com.bls.flight.ui.theme
+package com.bls.flight.utils.theme
 
 import android.app.Activity
 import android.os.Build
