@@ -1,4 +1,4 @@
-package com.bls.flight.ui.theme
+package com.bls.flight.utils.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
