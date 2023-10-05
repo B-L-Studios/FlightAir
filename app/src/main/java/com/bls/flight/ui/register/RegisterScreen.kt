@@ -119,6 +119,7 @@ fun RegisterScreen(navigator: NavigationProvider) {
             textValue = password,
             placeholder = "Enter Password",
             leadingIcon = R.drawable.outline_lock_24,
+            keyboardType = KeyboardType.Password,
             imeAction = ImeAction.Done,
             focusNode = focusNode,
             visualTransformation = PasswordVisualTransformation('*')
