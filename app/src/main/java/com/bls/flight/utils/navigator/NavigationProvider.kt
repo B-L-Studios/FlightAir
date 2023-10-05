@@ -6,4 +6,5 @@ interface NavigationProvider {
     fun navigateToLoginScreen()
     fun navigateToRegisterScreen()
     fun navigateToResetPasswordScreen()
+    fun navigateToOtpScreen()
 }
