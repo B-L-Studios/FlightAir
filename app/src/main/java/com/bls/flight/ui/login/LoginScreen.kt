@@ -43,7 +43,7 @@ import com.ramcosta.composedestinations.annotation.RootNavGraph
 @RootNavGraph(start = true)
 @Destination
 @Composable
-fun LoginScreen(navigator:NavigationProvider) {
+fun LoginScreen(navigator: NavigationProvider) {
     val focusNode = LocalFocusManager.current
     val email = remember { mutableStateOf("") }
     val password = remember { mutableStateOf("") }

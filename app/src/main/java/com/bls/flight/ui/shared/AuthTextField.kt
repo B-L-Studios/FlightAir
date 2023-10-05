@@ -21,6 +21,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -33,6 +34,7 @@ fun AuthTextField(
     textValue: MutableState<String>,
     placeholder: String,
     leadingIcon: Int,
+    keyboardType: KeyboardType = KeyboardType.Text,
     imeAction: ImeAction,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     focusNode: FocusManager
@@ -80,6 +82,7 @@ fun AuthTextField(
             )
         },
         keyboardOptions = KeyboardOptions(
+            keyboardType = keyboardType,
             imeAction = imeAction
         ),
         keyboardActions = keyboardActions,
