@@ -1,4 +1,4 @@
-package com.bls.flight.ui.login
+package com.bls.flight.ui.register
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -11,9 +11,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBarsPadding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Divider
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -28,23 +28,24 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.bls.flight.R
-import com.bls.flight.ui.login.components.SocialButton
 import com.bls.flight.ui.shared.AuthTextField
 import com.bls.flight.ui.shared.FlightButton
 import com.bls.flight.utils.navigator.NavigationProvider
+import com.bls.flight.utils.navigator.anim.SlideLeftAnimation
 import com.ramcosta.composedestinations.annotation.Destination
-import com.ramcosta.composedestinations.annotation.RootNavGraph
 
-@RootNavGraph(start = true)
-@Destination
+@Destination(style = SlideLeftAnimation::class)
 @Composable
-fun LoginScreen(navigator: NavigationProvider) {
+fun RegisterScreen(navigator: NavigationProvider) {
     val focusNode = LocalFocusManager.current
+    val name = remember { mutableStateOf("") }
+    val phone = remember { mutableStateOf("") }
     val email = remember { mutableStateOf("") }
     val password = remember { mutableStateOf("") }
 
@@ -52,7 +53,8 @@ fun LoginScreen(navigator: NavigationProvider) {
         modifier = Modifier
             .fillMaxSize()
             .systemBarsPadding()
-            .padding(horizontal = 16.dp),
+            .padding(horizontal = 16.dp)
+            .verticalScroll(rememberScrollState()),
     ) {
         Box(
             modifier = Modifier
@@ -67,7 +69,7 @@ fun LoginScreen(navigator: NavigationProvider) {
         }
 
         Text(
-            text = "Login to your account",
+            text = "Register Now!",
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
             style = TextStyle(
@@ -89,6 +91,23 @@ fun LoginScreen(navigator: NavigationProvider) {
         )
 
         AuthTextField(
+            textValue = name,
+            placeholder = "Enter Name",
+            leadingIcon = R.drawable.outline_person_24,
+            imeAction = ImeAction.Next,
+            focusNode = focusNode
+        )
+
+        AuthTextField(
+            textValue = phone,
+            placeholder = "Enter Phone Number",
+            leadingIcon = R.drawable.outline_phone_24,
+            keyboardType = KeyboardType.Number,
+            imeAction = ImeAction.Next,
+            focusNode = focusNode
+        )
+
+        AuthTextField(
             textValue = email,
             placeholder = "Enter Email",
             leadingIcon = R.drawable.outline_email_24,
@@ -105,76 +124,11 @@ fun LoginScreen(navigator: NavigationProvider) {
             visualTransformation = PasswordVisualTransformation('*')
         )
 
-        Box(
-            modifier = Modifier.fillMaxWidth(),
-            contentAlignment = Alignment.CenterEnd
-        ) {
-            TextButton(
-                onClick = { /*TODO*/ },
-                contentPadding = PaddingValues(0.dp),
-
-                ) {
-                Text(
-                    text = "Forgot password?",
-                    style = TextStyle(
-                        color = Color(0xFF93155b),
-                        fontSize = 14.sp,
-                        fontFamily = FontFamily(Font(R.font.poppins_light))
-                    )
-                )
-            }
-        }
-
         FlightButton(
             modifier = Modifier.padding(top = 16.dp),
-            text = "Login",
+            text = "Register",
             onClick = { /*TODO*/ }
         )
-
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 16.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Divider(
-                modifier = Modifier.weight(1f),
-                thickness = 0.5.dp,
-                color = Color.LightGray
-            )
-            Text(
-                text = "  Or continue with  ",
-                style = TextStyle(
-                    color = Color.LightGray,
-                    fontSize = 14.sp,
-                    fontFamily = FontFamily(Font(R.font.poppins_light))
-                ),
-            )
-            Divider(
-                modifier = Modifier.weight(1f),
-                thickness = 0.5.dp,
-                color = Color.LightGray
-            )
-        }
-
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            SocialButton(
-                text = "Google",
-                onClick = { /*TODO*/ },
-                icon = R.drawable.google
-            )
-
-            Spacer(modifier = Modifier.width(22.dp))
-
-            SocialButton(
-                text = "Facebook",
-                onClick = { /*TODO*/ },
-                icon = R.drawable.facebook
-            )
-        }
 
         Spacer(modifier = Modifier.weight(1f))
 
@@ -184,7 +138,7 @@ fun LoginScreen(navigator: NavigationProvider) {
             horizontalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "Don't have an account?",
+                text = "Already a member?",
                 style = TextStyle(
                     color = Color.Gray,
                     fontSize = 14.sp,
@@ -193,7 +147,7 @@ fun LoginScreen(navigator: NavigationProvider) {
             )
 
             TextButton(
-                onClick = { navigator.navigateToRegisterScreen() },
+                onClick = { navigator.navigateBack() },
                 contentPadding = PaddingValues(4.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color.Transparent,
@@ -201,7 +155,7 @@ fun LoginScreen(navigator: NavigationProvider) {
                 )
             ) {
                 Text(
-                    text = "Register Now",
+                    text = "Login",
                     style = TextStyle(
                         color = Color(0xFF93155b),
                         fontSize = 14.sp,
