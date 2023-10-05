@@ -11,10 +11,9 @@ import androidx.compose.ui.res.painterResource
 import com.bls.flight.R
 import com.bls.flight.utils.navigator.NavigationProvider
 import com.ramcosta.composedestinations.annotation.Destination
-import com.ramcosta.composedestinations.annotation.RootNavGraph
 import kotlinx.coroutines.delay
 
-@RootNavGraph(start = true)
+
 @Destination
 @Composable
 fun SplashScreen(navigator:NavigationProvider) {
