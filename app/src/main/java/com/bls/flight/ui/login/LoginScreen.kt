@@ -36,13 +36,14 @@ import com.bls.flight.R
 import com.bls.flight.ui.login.components.SocialButton
 import com.bls.flight.ui.shared.AuthTextField
 import com.bls.flight.ui.shared.FlightButton
+import com.bls.flight.utils.navigator.NavigationProvider
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootNavGraph
 
 @RootNavGraph(start = true)
 @Destination
 @Composable
-fun LoginScreen() {
+fun LoginScreen(navigator:NavigationProvider) {
     val focusNode = LocalFocusManager.current
     val email = remember { mutableStateOf("") }
     val password = remember { mutableStateOf("") }
@@ -192,7 +193,7 @@ fun LoginScreen() {
             )
 
             TextButton(
-                onClick = { /*TODO*/ },
+                onClick = { navigator.navigateToRegisterScreen() },
                 contentPadding = PaddingValues(4.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color.Transparent,
