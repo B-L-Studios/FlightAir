@@ -1,6 +1,7 @@
 package com.bls.flight.utils.navigator
 
 import com.bls.flight.ui.destinations.LoginScreenDestination
+import com.bls.flight.ui.destinations.NewPasswordScreenDestination
 import com.bls.flight.ui.destinations.OTPScreenDestination
 import com.bls.flight.ui.destinations.OnBoardingScreenDestination
 import com.bls.flight.ui.destinations.RegisterScreenDestination
@@ -30,5 +31,9 @@ class AppNavigationProvider(private val navController: DestinationsNavigator) : 
 
     override fun navigateToOtpScreen() {
         navController.navigate(OTPScreenDestination)
+    }
+
+    override fun navigateToNewPasswordScreen() {
+        navController.navigate(NewPasswordScreenDestination)
     }
 }

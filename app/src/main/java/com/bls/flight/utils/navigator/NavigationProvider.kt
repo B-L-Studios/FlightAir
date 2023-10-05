@@ -7,4 +7,5 @@ interface NavigationProvider {
     fun navigateToRegisterScreen()
     fun navigateToResetPasswordScreen()
     fun navigateToOtpScreen()
+    fun navigateToNewPasswordScreen()
 }
