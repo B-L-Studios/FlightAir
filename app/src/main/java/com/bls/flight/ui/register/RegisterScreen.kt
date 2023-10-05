@@ -37,9 +37,10 @@ import com.bls.flight.R
 import com.bls.flight.ui.shared.AuthTextField
 import com.bls.flight.ui.shared.FlightButton
 import com.bls.flight.utils.navigator.NavigationProvider
+import com.bls.flight.utils.navigator.anim.SlideLeftAnimation
 import com.ramcosta.composedestinations.annotation.Destination
 
-@Destination
+@Destination(style = SlideLeftAnimation::class)
 @Composable
 fun RegisterScreen(navigator: NavigationProvider) {
     val focusNode = LocalFocusManager.current
