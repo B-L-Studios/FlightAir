@@ -99,7 +99,14 @@ fun NewPasswordScreen(navigator: NavigationProvider) {
         FlightButton(
             modifier = Modifier.padding(bottom = 16.dp),
             text = "Save",
-            onClick = { navigator.openSuccessDialog() }
+            onClick = {
+                navigator.openSuccessDialog(
+                    image = R.drawable.like_3d,
+                    title = "Password Updated Successfully",
+                    description = "Your password has been updated successfully",
+                    route = "login_screen"
+                )
+            }
         )
     }
 }

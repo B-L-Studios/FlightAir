@@ -24,9 +24,15 @@ import com.bls.flight.utils.navigator.NavigationProvider
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.spec.DestinationStyle
 
-@Destination(style = DestinationStyle.Dialog::class)
+@Destination(
+    style = DestinationStyle.Dialog::class,
+    navArgsDelegate = SuccessDialogNavArgsDelegate::class
+)
 @Composable
-fun SuccessDialog(navigator: NavigationProvider) {
+fun SuccessDialog(
+    navArgs: SuccessDialogNavArgsDelegate,
+    navigator: NavigationProvider
+) {
     Dialog(
         onDismissRequest = { },
         properties = DialogProperties(
@@ -43,13 +49,13 @@ fun SuccessDialog(navigator: NavigationProvider) {
                     .fillMaxWidth()
             ) {
                 Image(
-                    painter = painterResource(id = R.drawable.like_3d),
+                    painter = painterResource(id = navArgs.image),
                     contentDescription = null,
                     modifier = Modifier.fillMaxWidth()
                 )
 
                 Text(
-                    text = "Password changed successfully!",
+                    text = navArgs.title,
                     maxLines = 2,
                     modifier = Modifier.fillMaxWidth(),
                     textAlign = TextAlign.Center,
@@ -61,7 +67,7 @@ fun SuccessDialog(navigator: NavigationProvider) {
                 )
 
                 Text(
-                    text = "Your password has been updated successfully",
+                    text = navArgs.description,
                     maxLines = 2,
                     modifier = Modifier.fillMaxWidth(),
                     textAlign = TextAlign.Center,
@@ -75,10 +81,16 @@ fun SuccessDialog(navigator: NavigationProvider) {
                 FlightButton(
                     modifier = Modifier.padding(16.dp),
                     text = "Back To Login",
-                    onClick = { navigator.navigateToLoginScreen() }
+                    onClick = { navigator.navigateWithRoute(navArgs.route) }
                 )
-
             }
         }
     }
 }
+
+data class SuccessDialogNavArgsDelegate(
+    val image: Int,
+    val title: String,
+    val description: String,
+    val route:String
+)

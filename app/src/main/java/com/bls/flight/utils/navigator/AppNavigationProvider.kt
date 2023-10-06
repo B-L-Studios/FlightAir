@@ -38,7 +38,18 @@ class AppNavigationProvider(private val navController: DestinationsNavigator) : 
         navController.navigate(NewPasswordScreenDestination)
     }
 
-    override fun openSuccessDialog() {
-        navController.navigate(SuccessDialogDestination)
+    override fun openSuccessDialog(image:Int, title:String, description:String, route:String) {
+        navController.navigate(
+            SuccessDialogDestination(
+                image = image,
+                title = title,
+                description = description,
+                route = route
+            )
+        )
+    }
+
+    override fun navigateWithRoute(route: String) {
+        navController.navigate(route)
     }
 }

@@ -8,5 +8,6 @@ interface NavigationProvider {
     fun navigateToResetPasswordScreen()
     fun navigateToOtpScreen()
     fun navigateToNewPasswordScreen()
-    fun openSuccessDialog()
+    fun openSuccessDialog(image:Int, title:String, description:String, route:String)
+    fun navigateWithRoute(route:String)
 }
