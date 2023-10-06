@@ -99,7 +99,7 @@ fun NewPasswordScreen(navigator: NavigationProvider) {
         FlightButton(
             modifier = Modifier.padding(bottom = 16.dp),
             text = "Save",
-            onClick = { }
+            onClick = { navigator.openSuccessDialog() }
         )
     }
 }
