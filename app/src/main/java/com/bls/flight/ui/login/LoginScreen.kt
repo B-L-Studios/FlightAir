@@ -28,6 +28,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -101,6 +102,7 @@ fun LoginScreen(navigator: NavigationProvider) {
             placeholder = "Enter Password",
             leadingIcon = R.drawable.outline_lock_24,
             imeAction = ImeAction.Done,
+            keyboardType = KeyboardType.Password,
             focusNode = focusNode,
             visualTransformation = PasswordVisualTransformation('*')
         )
@@ -110,7 +112,7 @@ fun LoginScreen(navigator: NavigationProvider) {
             contentAlignment = Alignment.CenterEnd
         ) {
             TextButton(
-                onClick = { /*TODO*/ },
+                onClick = { navigator.navigateToResetPasswordScreen() },
                 contentPadding = PaddingValues(0.dp),
 
                 ) {

@@ -1,8 +1,7 @@
-package com.bls.flight.ui.register
+package com.bls.flight.ui.reset.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -14,6 +13,7 @@ import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -27,14 +27,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.bls.flight.R
-import com.bls.flight.ui.shared.AuthTextField
+import com.bls.flight.ui.reset.components.OTPField
 import com.bls.flight.ui.shared.FlightButton
 import com.bls.flight.utils.navigator.NavigationProvider
 import com.bls.flight.utils.navigator.anim.SlideLeftAnimation
@@ -42,34 +39,28 @@ import com.ramcosta.composedestinations.annotation.Destination
 
 @Destination(style = SlideLeftAnimation::class)
 @Composable
-fun RegisterScreen(navigator: NavigationProvider) {
+fun OTPScreen(navigator: NavigationProvider) {
     val focusNode = LocalFocusManager.current
-    val name = remember { mutableStateOf("") }
-    val phone = remember { mutableStateOf("") }
-    val email = remember { mutableStateOf("") }
-    val password = remember { mutableStateOf("") }
+    val otp = remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier
             .fillMaxSize()
             .systemBarsPadding()
             .padding(horizontal = 16.dp)
-            .verticalScroll(rememberScrollState()),
+            .verticalScroll(rememberScrollState())
     ) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 16.dp),
-            contentAlignment = Alignment.Center
+        IconButton(
+            onClick = { navigator.navigateBack() }
         ) {
             Image(
-                painter = painterResource(id = R.drawable.logo),
-                contentDescription = null,
+                painter = painterResource(id = R.drawable.baseline_arrow_back_ios_new_24),
+                contentDescription = "Close"
             )
         }
 
         Text(
-            text = "Register Now!",
+            text = "Enter OTP Code",
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
             style = TextStyle(
@@ -80,8 +71,8 @@ fun RegisterScreen(navigator: NavigationProvider) {
         )
 
         Text(
-            text = "Enter your information below",
-            maxLines = 1,
+            text = "OTP code has been sent to your contact info.",
+            maxLines = 2,
             overflow = TextOverflow.Ellipsis,
             style = TextStyle(
                 color = Color.LightGray,
@@ -90,56 +81,18 @@ fun RegisterScreen(navigator: NavigationProvider) {
             )
         )
 
-        AuthTextField(
-            textValue = name,
-            placeholder = "Enter Name",
-            leadingIcon = R.drawable.outline_person_24,
-            imeAction = ImeAction.Next,
+        OTPField(
+            otp = otp,
             focusNode = focusNode
         )
-
-        AuthTextField(
-            textValue = phone,
-            placeholder = "Enter Phone Number",
-            leadingIcon = R.drawable.outline_phone_24,
-            keyboardType = KeyboardType.Number,
-            imeAction = ImeAction.Next,
-            focusNode = focusNode
-        )
-
-        AuthTextField(
-            textValue = email,
-            placeholder = "Enter Email",
-            leadingIcon = R.drawable.outline_email_24,
-            imeAction = ImeAction.Next,
-            focusNode = focusNode
-        )
-
-        AuthTextField(
-            textValue = password,
-            placeholder = "Enter Password",
-            leadingIcon = R.drawable.outline_lock_24,
-            keyboardType = KeyboardType.Password,
-            imeAction = ImeAction.Done,
-            focusNode = focusNode,
-            visualTransformation = PasswordVisualTransformation('*')
-        )
-
-        FlightButton(
-            modifier = Modifier.padding(top = 16.dp),
-            text = "Register",
-            onClick = { /*TODO*/ }
-        )
-
-        Spacer(modifier = Modifier.weight(1f))
 
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center
+            horizontalArrangement = Arrangement.End
         ) {
             Text(
-                text = "Already a member?",
+                text = "Resend code in",
                 style = TextStyle(
                     color = Color.Gray,
                     fontSize = 14.sp,
@@ -148,7 +101,7 @@ fun RegisterScreen(navigator: NavigationProvider) {
             )
 
             TextButton(
-                onClick = { navigator.navigateBack() },
+                onClick = { navigator.navigateToRegisterScreen() },
                 contentPadding = PaddingValues(4.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color.Transparent,
@@ -156,7 +109,7 @@ fun RegisterScreen(navigator: NavigationProvider) {
                 )
             ) {
                 Text(
-                    text = "Login",
+                    text = "00:52",
                     style = TextStyle(
                         color = Color(0xFF93155b),
                         fontSize = 14.sp,
@@ -165,5 +118,13 @@ fun RegisterScreen(navigator: NavigationProvider) {
                 )
             }
         }
+
+        Spacer(modifier = Modifier.weight(1f))
+
+        FlightButton(
+            modifier = Modifier.padding(bottom = 16.dp),
+            text = "Verify",
+            onClick = { navigator.navigateToNewPasswordScreen() }
+        )
     }
 }
