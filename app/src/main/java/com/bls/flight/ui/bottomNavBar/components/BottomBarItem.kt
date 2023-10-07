@@ -11,9 +11,6 @@ enum class BottomBarItem(
     SEARCH(
         icon = R.drawable.search
     ),
-    QR(
-        icon = R.drawable.qr
-    ),
     TICKET(
         icon = R.drawable.ticket
     ),
