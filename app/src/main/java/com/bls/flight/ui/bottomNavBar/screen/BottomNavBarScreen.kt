@@ -10,20 +10,22 @@ import androidx.compose.ui.Modifier
 import com.bls.flight.ui.bottomNavBar.components.BottomBarItem
 import com.bls.flight.ui.bottomNavBar.components.HomeBottomNavigation
 import com.bls.flight.ui.home.HomeScreen
-import com.bls.flight.ui.profile.ProfileScreen
+import com.bls.flight.ui.profile.screens.ProfileScreen
 import com.bls.flight.ui.qr.QRScreen
 import com.bls.flight.ui.search.SearchScreen
 import com.bls.flight.ui.ticket.TicketScreen
 import com.bls.flight.utils.navigator.NavigationProvider
 import com.bls.flight.utils.navigator.anim.SlideLeftAnimation
 import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.annotation.RootNavGraph
 
 @OptIn(ExperimentalMaterial3Api::class)
+@RootNavGraph(start = true)
 @Destination(style = SlideLeftAnimation::class)
 @Composable
 fun BottomNavBarScreen(navigator: NavigationProvider) {
     val (currentBottomTab, setCurrentBottomTab) = rememberSaveable {
-        mutableStateOf(BottomBarItem.HOME)
+        mutableStateOf(BottomBarItem.PROFILE)
     }
 
     Scaffold(
@@ -34,7 +36,8 @@ fun BottomNavBarScreen(navigator: NavigationProvider) {
             )
         }
     ) { paddingValues ->
-        val modifier = Modifier.padding(paddingValues = paddingValues)
+        val bottomPadding = paddingValues.calculateBottomPadding()
+        val modifier = Modifier.padding(bottom = bottomPadding)
         when (currentBottomTab) {
             BottomBarItem.HOME -> HomeScreen(modifier = modifier, navigator = navigator)
             BottomBarItem.SEARCH -> SearchScreen(modifier = modifier, navigator = navigator)

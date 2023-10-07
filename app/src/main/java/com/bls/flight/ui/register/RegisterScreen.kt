@@ -102,7 +102,7 @@ fun RegisterScreen(navigator: NavigationProvider) {
             textValue = phone,
             placeholder = "Enter Phone Number",
             leadingIcon = R.drawable.outline_phone_24,
-            keyboardType = KeyboardType.Number,
+            keyboardType = KeyboardType.Phone,
             imeAction = ImeAction.Next,
             focusNode = focusNode
         )
