@@ -15,7 +15,7 @@ fun CompletedScreen(navigator: NavigationProvider) {
         modifier = Modifier.fillMaxSize()
     ) {
         items(listOfCompletedTickets) { ticket ->
-            TicketItem(ticket = ticket)
+            TicketItem(ticket = ticket, navigator = navigator)
         }
     }
 }

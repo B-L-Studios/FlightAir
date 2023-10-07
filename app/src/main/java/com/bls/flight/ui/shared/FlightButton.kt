@@ -21,8 +21,8 @@ import com.bls.flight.R
 @Composable
 fun FlightButton(
     modifier: Modifier = Modifier,
-    text: String,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    text: String
 ) {
     TextButton(
         onClick = onClick,
@@ -38,6 +38,34 @@ fun FlightButton(
             text = text,
             style = TextStyle(
                 color = Color.White,
+                fontSize = 18.sp,
+                letterSpacing = 0.5.sp,
+                fontFamily = FontFamily(Font(R.font.poppins_light))
+            )
+        )
+    }
+}
+
+@Composable
+fun WhiteFlightButton(
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit,
+    text: String
+) {
+    TextButton(
+        onClick = onClick,
+        modifier = modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(16.dp),
+        colors = ButtonDefaults.textButtonColors(
+            contentColor = Color(0xFF93155b),
+            containerColor = Color.White
+        ),
+        contentPadding = PaddingValues(16.dp)
+    ) {
+        Text(
+            text = text,
+            style = TextStyle(
+                color = Color(0xFF93155b),
                 fontSize = 18.sp,
                 letterSpacing = 0.5.sp,
                 fontFamily = FontFamily(Font(R.font.poppins_light))

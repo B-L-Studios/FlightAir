@@ -26,9 +26,10 @@ import com.bls.flight.R
 import com.bls.flight.ui.shared.FlightButton
 import com.bls.flight.ui.shared.OutlinedFlightButton
 import com.bls.flight.ui.ticket.data.Ticket
+import com.bls.flight.utils.navigator.NavigationProvider
 
 @Composable
-fun TicketItem(ticket: Ticket) {
+fun TicketItem(ticket: Ticket,navigator:NavigationProvider) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -165,7 +166,7 @@ fun TicketItem(ticket: Ticket) {
         if(ticket.isCancelled){
             FlightButton(
                 text = "View Details",
-                onClick = {},
+                onClick = { navigator.navigateToBoardingPassScreen() },
                 modifier = Modifier
                     .padding(horizontal = 4.dp)
             )
@@ -173,7 +174,7 @@ fun TicketItem(ticket: Ticket) {
             Row {
                 OutlinedFlightButton(
                     text = "View Details",
-                    onClick = {},
+                    onClick = { navigator.navigateToBoardingPassScreen() },
                     modifier = Modifier
                         .weight(1f)
                         .padding(horizontal = 4.dp)

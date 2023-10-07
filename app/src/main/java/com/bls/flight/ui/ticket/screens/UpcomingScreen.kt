@@ -15,7 +15,7 @@ fun UpcomingScreen(navigator: NavigationProvider) {
         modifier = Modifier.fillMaxSize()
     ) {
         items(listOfUpcomingTickets) { ticket ->
-            TicketItem(ticket = ticket)
+            TicketItem(ticket = ticket, navigator = navigator)
         }
     }
 }
