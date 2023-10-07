@@ -1,4 +1,4 @@
-package com.bls.flight.ui.main
+package com.bls.flight.ui.appNav
 
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -17,7 +17,7 @@ import com.ramcosta.composedestinations.navigation.dependency
 
 @OptIn(ExperimentalMaterialNavigationApi::class, ExperimentalAnimationApi::class)
 @Composable
-fun MainNav() {
+fun InAppNav() {
     val engine = rememberAnimatedNavHostEngine()
     val navController = rememberAnimatedNavController()
     val bottomSheetNavigator = rememberBottomSheetNavigator()

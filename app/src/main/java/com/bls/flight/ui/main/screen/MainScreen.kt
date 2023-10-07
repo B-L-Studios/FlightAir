@@ -1,4 +1,4 @@
-package com.bls.flight.ui.bottomNavBar.screen
+package com.bls.flight.ui.main.screen
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -7,8 +7,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
-import com.bls.flight.ui.bottomNavBar.components.BottomBarItem
-import com.bls.flight.ui.bottomNavBar.components.HomeBottomNavigation
+import com.bls.flight.ui.main.components.BottomBarItem
+import com.bls.flight.ui.main.components.HomeBottomNavigation
 import com.bls.flight.ui.home.HomeScreen
 import com.bls.flight.ui.profile.screens.ProfileScreen
 import com.bls.flight.ui.search.SearchScreen
@@ -19,12 +19,12 @@ import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootNavGraph
 
 @OptIn(ExperimentalMaterial3Api::class)
-@RootNavGraph(start = true)
+@RootNavGraph(start = false)
 @Destination(style = SlideLeftAnimation::class)
 @Composable
-fun BottomNavBarScreen(navigator: NavigationProvider) {
+fun MainScreen(navigator: NavigationProvider) {
     val (currentBottomTab, setCurrentBottomTab) = rememberSaveable {
-        mutableStateOf(BottomBarItem.SEARCH)
+        mutableStateOf(BottomBarItem.HOME)
     }
 
     Scaffold(

@@ -1,4 +1,4 @@
-package com.bls.flight.ui.bottomNavBar.components
+package com.bls.flight.ui.main.components
 
 import com.bls.flight.R
 

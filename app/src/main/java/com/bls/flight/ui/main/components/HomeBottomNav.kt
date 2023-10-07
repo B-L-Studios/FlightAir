@@ -1,4 +1,4 @@
-package com.bls.flight.ui.bottomNavBar.components
+package com.bls.flight.ui.main.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Icon
