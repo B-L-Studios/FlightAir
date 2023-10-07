@@ -1,7 +1,6 @@
 package com.bls.flight.ui.profile.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -9,7 +8,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -57,18 +55,7 @@ fun TopProfileSection(name: String, email: String) {
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Box(
-                    modifier = Modifier
-                        .sizeIn(
-                            minWidth = 80.dp,
-                            minHeight = 80.dp,
-                            maxWidth = 120.dp,
-                            maxHeight = 120.dp
-                        )
-                        .clip(RoundedCornerShape(8.dp))
-                        .border(2.dp, Color.White, RoundedCornerShape(8.dp))
-
-                )
+                ProfilePic(borderColor = Color.White)
 
                 Spacer(modifier = Modifier.width(16.dp))
 
