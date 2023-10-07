@@ -76,7 +76,7 @@ fun HomeScreen(modifier: Modifier, navigator: NavigationProvider) {
                     )
 
                     Text(
-                        text = "Find your flights",
+                        text = "Check popular flights",
                         style = TextStyle(
                             fontSize = 24.sp,
                             color = Color.White,
