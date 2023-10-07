@@ -1,5 +1,6 @@
 package com.bls.flight.utils.navigator
 
+import com.bls.flight.ui.destinations.BottomNavBarScreenDestination
 import com.bls.flight.ui.destinations.LoginScreenDestination
 import com.bls.flight.ui.destinations.NewPasswordScreenDestination
 import com.bls.flight.ui.destinations.OTPScreenDestination
@@ -51,5 +52,9 @@ class AppNavigationProvider(private val navController: DestinationsNavigator) : 
 
     override fun navigateWithRoute(route: String) {
         navController.navigate(route)
+    }
+
+    override fun navigateToMainScreen() {
+        navController.navigate(BottomNavBarScreenDestination)
     }
 }

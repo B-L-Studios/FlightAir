@@ -1,7 +1,5 @@
 package com.bls.flight.ui.bottomNavBar.screen
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
@@ -11,12 +9,15 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import com.bls.flight.ui.bottomNavBar.components.BottomBarItem
 import com.bls.flight.ui.bottomNavBar.components.HomeBottomNavigation
+import com.bls.flight.ui.home.HomeScreen
+import com.bls.flight.ui.profile.ProfileScreen
+import com.bls.flight.ui.qr.QRScreen
+import com.bls.flight.ui.search.SearchScreen
+import com.bls.flight.ui.ticket.TicketScreen
 import com.bls.flight.utils.navigator.NavigationProvider
 import com.bls.flight.utils.navigator.anim.SlideLeftAnimation
 import com.ramcosta.composedestinations.annotation.Destination
-import com.ramcosta.composedestinations.annotation.RootNavGraph
 
-@RootNavGraph(start = true)
 @OptIn(ExperimentalMaterial3Api::class)
 @Destination(style = SlideLeftAnimation::class)
 @Composable
@@ -27,7 +28,10 @@ fun BottomNavBarScreen(navigator: NavigationProvider) {
 
     Scaffold(
         bottomBar = {
-            HomeBottomNavigation(bottomTab = currentBottomTab, setCurrentBottomTab = setCurrentBottomTab)
+            HomeBottomNavigation(
+                bottomTab = currentBottomTab,
+                setCurrentBottomTab = setCurrentBottomTab
+            )
         }
     ) { paddingValues ->
         val modifier = Modifier.padding(paddingValues = paddingValues)
@@ -38,41 +42,6 @@ fun BottomNavBarScreen(navigator: NavigationProvider) {
             BottomBarItem.TICKET -> TicketScreen(modifier = modifier, navigator = navigator)
             BottomBarItem.PROFILE -> ProfileScreen(modifier = modifier, navigator = navigator)
         }
-
-    }
-}
-
-@Composable
-fun HomeScreen(modifier: Modifier, navigator: NavigationProvider) {
-    Column(modifier = modifier.fillMaxSize()) {
-
-    }
-}
-
-@Composable
-fun SearchScreen(modifier: Modifier, navigator: NavigationProvider) {
-    Column(modifier = modifier.fillMaxSize()) {
-
-    }
-}
-
-@Composable
-fun QRScreen(modifier: Modifier, navigator: NavigationProvider) {
-    Column(modifier = modifier.fillMaxSize()) {
-
-    }
-}
-
-@Composable
-fun TicketScreen(modifier: Modifier, navigator: NavigationProvider) {
-    Column(modifier = modifier.fillMaxSize()) {
-
-    }
-}
-
-@Composable
-fun ProfileScreen(modifier: Modifier, navigator: NavigationProvider) {
-    Column(modifier = modifier.fillMaxSize()) {
 
     }
 }

@@ -41,7 +41,7 @@ import com.bls.flight.utils.navigator.NavigationProvider
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootNavGraph
 
-/*@RootNavGraph(start = true)*/
+@RootNavGraph(start = true)
 @Destination
 @Composable
 fun LoginScreen(navigator: NavigationProvider) {
@@ -130,7 +130,7 @@ fun LoginScreen(navigator: NavigationProvider) {
         FlightButton(
             modifier = Modifier.padding(top = 16.dp),
             text = "Login",
-            onClick = { /*TODO*/ }
+            onClick = { navigator.navigateToMainScreen() }
         )
 
         Row(
