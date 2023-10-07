@@ -1,5 +1,6 @@
 package com.bls.flight.utils.navigator
 
+import com.bls.flight.ui.destinations.BoardingPassScreenDestination
 import com.bls.flight.ui.destinations.BottomNavBarScreenDestination
 import com.bls.flight.ui.destinations.EditScreenDestination
 import com.bls.flight.ui.destinations.LoginScreenDestination
@@ -81,5 +82,9 @@ class AppNavigationProvider(private val navController: DestinationsNavigator) : 
 
     override fun navigateToPaymentMethodScreen() {
         navController.navigate(PaymentMethodScreenDestination)
+    }
+
+    override fun navigateToBoardingPassScreen() {
+        navController.navigate(BoardingPassScreenDestination)
     }
 }

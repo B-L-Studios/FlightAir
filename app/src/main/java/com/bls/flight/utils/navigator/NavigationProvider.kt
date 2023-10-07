@@ -16,4 +16,5 @@ interface NavigationProvider {
     fun navigateToPrivacyScreen()
     fun navigateToTermsScreen()
     fun navigateToPaymentMethodScreen()
+    fun navigateToBoardingPassScreen()
 }
