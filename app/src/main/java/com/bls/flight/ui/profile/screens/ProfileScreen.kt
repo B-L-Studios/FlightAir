@@ -23,7 +23,6 @@ fun ProfileScreen(modifier: Modifier, navigator: NavigationProvider) {
         modifier = modifier
             .fillMaxSize()
     ) {
-
         TopProfileSection(
             name = "Tim Jennings",
             email = "tim.jennings@domain.com"

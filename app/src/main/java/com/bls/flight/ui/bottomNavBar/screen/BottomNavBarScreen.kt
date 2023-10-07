@@ -13,7 +13,7 @@ import com.bls.flight.ui.home.HomeScreen
 import com.bls.flight.ui.profile.screens.ProfileScreen
 import com.bls.flight.ui.qr.QRScreen
 import com.bls.flight.ui.search.SearchScreen
-import com.bls.flight.ui.ticket.TicketScreen
+import com.bls.flight.ui.ticket.screens.TicketScreen
 import com.bls.flight.utils.navigator.NavigationProvider
 import com.bls.flight.utils.navigator.anim.SlideLeftAnimation
 import com.ramcosta.composedestinations.annotation.Destination
@@ -25,7 +25,7 @@ import com.ramcosta.composedestinations.annotation.RootNavGraph
 @Composable
 fun BottomNavBarScreen(navigator: NavigationProvider) {
     val (currentBottomTab, setCurrentBottomTab) = rememberSaveable {
-        mutableStateOf(BottomBarItem.PROFILE)
+        mutableStateOf(BottomBarItem.TICKET)
     }
 
     Scaffold(
