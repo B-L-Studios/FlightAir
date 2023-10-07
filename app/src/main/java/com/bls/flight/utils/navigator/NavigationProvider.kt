@@ -11,4 +11,9 @@ interface NavigationProvider {
     fun openSuccessDialog(image:Int, title:String, description:String, route:String)
     fun navigateWithRoute(route:String)
     fun navigateToMainScreen()
+    fun navigateToEditProfileScreen()
+    fun navigateToVouchersScreen()
+    fun navigateToPrivacyScreen()
+    fun navigateToTermsScreen()
+    fun navigateToPaymentMethodScreen()
 }

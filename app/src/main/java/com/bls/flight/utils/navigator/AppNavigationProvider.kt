@@ -1,13 +1,18 @@
 package com.bls.flight.utils.navigator
 
 import com.bls.flight.ui.destinations.BottomNavBarScreenDestination
+import com.bls.flight.ui.destinations.EditScreenDestination
 import com.bls.flight.ui.destinations.LoginScreenDestination
 import com.bls.flight.ui.destinations.NewPasswordScreenDestination
 import com.bls.flight.ui.destinations.OTPScreenDestination
 import com.bls.flight.ui.destinations.OnBoardingScreenDestination
+import com.bls.flight.ui.destinations.PaymentMethodScreenDestination
+import com.bls.flight.ui.destinations.PrivacyScreenDestination
 import com.bls.flight.ui.destinations.RegisterScreenDestination
 import com.bls.flight.ui.destinations.ResetPasswordScreenDestination
 import com.bls.flight.ui.destinations.SuccessDialogDestination
+import com.bls.flight.ui.destinations.TermScreenDestination
+import com.bls.flight.ui.destinations.VoucherScreenDestination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 class AppNavigationProvider(private val navController: DestinationsNavigator) : NavigationProvider {
@@ -56,5 +61,25 @@ class AppNavigationProvider(private val navController: DestinationsNavigator) : 
 
     override fun navigateToMainScreen() {
         navController.navigate(BottomNavBarScreenDestination)
+    }
+
+    override fun navigateToEditProfileScreen() {
+        navController.navigate(EditScreenDestination)
+    }
+
+    override fun navigateToVouchersScreen() {
+        navController.navigate(VoucherScreenDestination)
+    }
+
+    override fun navigateToPrivacyScreen() {
+        navController.navigate(PrivacyScreenDestination)
+    }
+
+    override fun navigateToTermsScreen() {
+        navController.navigate(TermScreenDestination)
+    }
+
+    override fun navigateToPaymentMethodScreen() {
+        navController.navigate(PaymentMethodScreenDestination)
     }
 }
