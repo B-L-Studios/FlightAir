@@ -9,15 +9,20 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.bls.flight.R
 import com.bls.flight.ui.profile.components.ProfileItem
 import com.bls.flight.ui.profile.components.TopProfileSection
 import com.bls.flight.ui.shared.FlightButton
 import com.bls.flight.utils.navigator.NavigationProvider
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
 fun ProfileScreen(modifier: Modifier, navigator: NavigationProvider) {
+    val systemUiController = rememberSystemUiController()
+    systemUiController.setStatusBarColor(color = Color.Transparent, darkIcons = false)
+
     Column(
         modifier = modifier
             .fillMaxSize()
