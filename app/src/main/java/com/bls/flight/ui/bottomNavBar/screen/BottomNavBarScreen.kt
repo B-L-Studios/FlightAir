@@ -24,7 +24,7 @@ import com.ramcosta.composedestinations.annotation.RootNavGraph
 @Composable
 fun BottomNavBarScreen(navigator: NavigationProvider) {
     val (currentBottomTab, setCurrentBottomTab) = rememberSaveable {
-        mutableStateOf(BottomBarItem.HOME)
+        mutableStateOf(BottomBarItem.SEARCH)
     }
 
     Scaffold(
