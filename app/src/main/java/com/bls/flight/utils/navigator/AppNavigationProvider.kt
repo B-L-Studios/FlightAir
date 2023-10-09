@@ -2,6 +2,7 @@ package com.bls.flight.utils.navigator
 
 import com.bls.flight.ui.destinations.BoardingPassScreenDestination
 import com.bls.flight.ui.destinations.EditScreenDestination
+import com.bls.flight.ui.destinations.FlightResultScreenDestination
 import com.bls.flight.ui.destinations.LoginScreenDestination
 import com.bls.flight.ui.destinations.MainScreenDestination
 import com.bls.flight.ui.destinations.NewPasswordScreenDestination
@@ -81,5 +82,9 @@ class AppNavigationProvider(private val navController: DestinationsNavigator) : 
 
     override fun navigateToBoardingPassScreen() {
         navController.navigate(BoardingPassScreenDestination)
+    }
+
+    override fun navigateToFlightResultScreen() {
+        navController.navigate(FlightResultScreenDestination)
     }
 }

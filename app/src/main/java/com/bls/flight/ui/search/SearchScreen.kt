@@ -140,7 +140,11 @@ fun SearchScreen(modifier: Modifier, navigator: NavigationProvider) {
 
             Spacer(modifier = Modifier.weight(1f))
 
-            FlightButton(onClick = { /*TODO*/ }, text = "Search Flight", modifier = Modifier.padding(bottom = 16.dp))
+            FlightButton(
+                onClick = { navigator.navigateToFlightResultScreen() },
+                text = "Search Flight",
+                modifier = Modifier.padding(bottom = 16.dp)
+            )
         }
     }
 }
