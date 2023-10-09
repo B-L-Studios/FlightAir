@@ -17,4 +17,5 @@ interface NavigationProvider {
     fun navigateToPaymentMethodScreen()
     fun navigateToBoardingPassScreen()
     fun navigateToFlightResultScreen()
+    fun openFilterSheet()
 }

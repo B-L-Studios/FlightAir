@@ -40,7 +40,7 @@ import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootNavGraph
 
 @OptIn(ExperimentalMaterial3Api::class)
-@RootNavGraph(start = true)
+@RootNavGraph(start = false)
 @Destination
 @Composable
 fun FlightResultScreen(navigator: NavigationProvider) {
@@ -72,7 +72,7 @@ fun FlightResultScreen(navigator: NavigationProvider) {
                     actionIconContentColor = Color.White
                 ),
                 actions = {
-                    IconButton(onClick = { }) {
+                    IconButton(onClick = { navigator.openFilterSheet() }) {
                         Icon(
                             painter = painterResource(id = R.drawable.filter),
                             contentDescription = null
